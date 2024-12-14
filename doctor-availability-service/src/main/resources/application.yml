@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: Doctor Availability Service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: rabbitmq
+    password: rabbitmq
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3
+        prefetch: 5
+        concurrency: 5
+        max-concurrency: 10
+    virtual-host: /
+
+server:
+  port: 8081
