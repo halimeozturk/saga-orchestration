@@ -4,6 +4,7 @@ import com.doctor.availability.service.dto.AppointmentData;
 import com.doctor.availability.service.dto.AppointmentDto;
 import com.doctor.availability.service.dto.DoctorAvailabilityDto;
 import com.doctor.availability.service.entity.DoctorAvailability;
+import com.doctor.availability.service.enums.AppointmentStatus;
 import com.doctor.availability.service.producer.AppointmentCancelledProducer;
 import com.doctor.availability.service.producer.ReservationConfirmedProducer;
 import com.doctor.availability.service.repository.DoctorAvailabilityRepository;

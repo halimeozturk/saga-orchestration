@@ -2,6 +2,7 @@ package com.appointment.service.mapper;
 
 import com.appointment.service.dto.AppointmentDto;
 import com.appointment.service.entity.Appointment;
+import com.appointment.service.enums.AppointmentStatus;
 
 public class AppointmentMapper {
 
@@ -15,6 +16,7 @@ public class AppointmentMapper {
         appointment.setAppointmentTime(appointmentDto.getAppointmentTime());
         appointment.setPatientId(appointmentDto.getPatientId());
         appointment.setDoctorId(appointmentDto.getDoctorId());
+        appointment.setAppointmentStatus(AppointmentStatus.APPOINTMENT_CREATED);
 
         return appointment;
     }
@@ -30,7 +32,7 @@ public class AppointmentMapper {
         appointmentDto.setAppointmentTime(appointment.getAppointmentTime());
         appointmentDto.setPatientId(appointment.getPatientId());
         appointmentDto.setDoctorId(appointment.getDoctorId());
-
+        appointmentDto.setStatus(appointment.getAppointmentStatus());
         return appointmentDto;
     }
 }

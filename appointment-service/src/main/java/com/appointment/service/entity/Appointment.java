@@ -1,5 +1,6 @@
 package com.appointment.service.entity;
 
+import com.appointment.service.enums.AppointmentStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,6 +37,10 @@ public class Appointment {
 
     @Column(name = "appointment_time", nullable = false)
     private String appointmentTime;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "appointment_status")
+    private AppointmentStatus appointmentStatus;
 
     @CreatedDate
     @Column(name = "create_date", nullable = false, updatable = false)

@@ -16,8 +16,8 @@ public class AppointmentCreateProducer {
     private final RabbitTemplate rabbitTemplate;
 
     public void appointmentCreate(AppointmentData appointmentData) throws JsonProcessingException {
-        String stockOrderData = new ObjectMapper().writeValueAsString(appointmentData);
-        log.info("[x] Requesting appointmentCreate ({})", stockOrderData);
+        String appointmentCreate = new ObjectMapper().writeValueAsString(appointmentData);
+        log.info("[x] Requesting appointmentCreate ({})", appointmentCreate);
         rabbitTemplate.convertAndSend("appointment.exchange",
                 "appointment.created", appointmentData);
     }

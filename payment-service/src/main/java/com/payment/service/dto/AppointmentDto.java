@@ -1,5 +1,6 @@
 package com.payment.service.dto;
 
+import com.payment.service.enums.AppointmentStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,10 +9,9 @@ import lombok.Setter;
 public class AppointmentDto {
 
     private Long id;
-    private Long patientId;           // Hasta kimliği
-    private Long doctorId;            // Doktor kimliği
-    private String appointmentDate;   // Randevu tarihi (yyyy-MM-dd formatında)
-    private String appointmentTime;   // Randevu saati (HH:mm formatında)
-
-
+    private Long patientId;
+    private Long doctorId;
+    private String appointmentDate;
+    private String appointmentTime;
+    private AppointmentStatus status;
 }

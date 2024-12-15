@@ -2,6 +2,7 @@ package com.payment.service.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.payment.service.dto.AppointmentData;
+import com.payment.service.dto.PaymentDto;
 import com.payment.service.entity.Payment;
 import com.payment.service.mapper.PaymentMapper;
 import com.payment.service.produce.PaymentProducer;
@@ -37,7 +38,7 @@ public class PaymentService {
         try{
             if(Objects.nonNull(appointmentData) && Objects.nonNull(appointmentData.getAppointmentDto().getId())) {
                 Payment payment = paymentRepository.save(PaymentMapper.toAppointment(appointmentData));
-                appointmentData.getPaymentDto().setId(payment.getId());
+                appointmentData.setPaymentDto(PaymentMapper.toAppointmentDto(payment));
                 paymentProducer.payment(appointmentData);
                 log.info("Payment created for appointmentId: {} with paymentId: {}", appointmentData.getAppointmentDto().getId(), payment.getId());
             }else{
